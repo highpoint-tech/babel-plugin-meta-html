@@ -1,8 +1,12 @@
 {
   "name": "@highpoint/babel-plugin-meta-html",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Populates meta-html references",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hp-mobile/babel-plugin-meta-html.git"
+  },
   "author": "HighPoint <support@mhighpoint.com>",
   "license": "MIT",
   "files": [
