@@ -114,6 +114,13 @@
     eslint-config-airbnb-base "^13.1.0"
     eslint-plugin-import "^2.14.0"
 
+"@highpoint/get-ps-token@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@highpoint/get-ps-token/-/get-ps-token-0.1.1.tgz#44c786155c4043d99651c158c7c9b3c794f26305"
+  dependencies:
+    request "^2.88.0"
+    request-promise "^4.2.2"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"

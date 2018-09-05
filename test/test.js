@@ -5,7 +5,7 @@ require('dotenv').config({ silent: true });
 
 const pluginPath = require.resolve('../src');
 
-const { ISCRIPT_ENVIRONMENT } = process.env;
+const { PS_ENVIRONMENT } = process.env;
 
 const transform = code =>
   babel.transformSync(code, {
@@ -36,7 +36,7 @@ describe('index', function test() {
   describe('%DBName', () => {
     it('populates %DBName', () => {
       const code = "const database = '%DBName';";
-      expect(transform(code)).to.include(ISCRIPT_ENVIRONMENT.toUpperCase());
+      expect(transform(code)).to.include(PS_ENVIRONMENT.toUpperCase());
     });
   });
 
