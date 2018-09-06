@@ -1,3 +1,6 @@
+# v0.2.1
+* Add caching functionality
+
 # v0.2.0
 * Use [@highpoint/get-ps-token](https://www.npmjs.com/package/@highpoint/get-ps-token)
   to populate cookie jar.
