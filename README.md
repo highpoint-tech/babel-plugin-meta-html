@@ -20,19 +20,57 @@ const message = 'Custom Properties';
 
 ## Usage
 
-Add the following to your `.babelrc` file:
+Copy `.env-sample` to your root directory and name it `.env`. Then populate it
+with values for your PeopleSoft environment. See "Environment Variables" below.
+
+Add the plugin to your `.babelrc` file.
+
+Simple example:
 
 ```json
 {
   "env": {
     "development": {
       "plugins": [
-          "@highpoint/meta-html"
+        "@highpoint/meta-html"
       ]
     }
   }
 }
 ```
 
-Copy `.env-sample` to your root directory and name it `.env`. Then populate it
-with values for your PeopleSoft environment.
+Advanced example:
+
+```json
+{
+  "env": {
+    "development": {
+      "plugins": [
+          [
+            "@highpoint/meta-html", {
+              "cacheDirectory": "tmp",
+              "cacheTTL": 600
+            }
+          ]
+      ]
+    }
+  }
+}
+```
+
+### Options
+
+* `cacheDirectory`: Defaults to `node_modules/.cache/babel-plugin-meta-html`.
+  Set to `false` to disable caching.
+* `cacheTTL`: Cache's time-to-live value, in seconds. Values older than this
+  will be refreshed. Defaults to 1800 seconds (30 minutes). 
+
+## Environment Variables
+
+| Variable        | Example        |
+| --------------- | -------------- |
+| PS_HOSTNAME     | ps.example.com |
+| PS_ENVIRONMENT  | csdev          |
+| PS_NODE         | SA             |
+| PS_USERNAME     | username       |
+| PS_PASSWORD     | password1      |

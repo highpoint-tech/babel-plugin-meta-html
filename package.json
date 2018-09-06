@@ -9,12 +9,18 @@
   },
   "author": "HighPoint <support@mhighpoint.com>",
   "license": "MIT",
+  "keywords": [
+    "PeopleSoft",
+    "Babel"
+  ],
   "files": [
     ".env-sample",
     "src/**/*"
   ],
   "dependencies": {
     "@highpoint/get-ps-token": "^0.1.1",
+    "find-cache-dir": "^2.0.0",
+    "mkdirp": "^0.5.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   },

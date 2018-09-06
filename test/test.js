@@ -1,5 +1,6 @@
 const babel = require('@babel/core');
 const { expect } = require('chai');
+const path = require('path');
 
 require('dotenv').config({ silent: true });
 
@@ -7,22 +8,24 @@ const pluginPath = require.resolve('../src');
 
 const { PS_ENVIRONMENT } = process.env;
 
-const transform = code =>
+const transform = (code, opts = {}) =>
   babel.transformSync(code, {
-    plugins: [[pluginPath]]
+    plugins: [[pluginPath, opts]]
   }).code;
 
 describe('index', function test() {
   this.timeout(5000);
 
-  it('ignores string', () => {
-    let code;
+  describe('ignore strings', () => {
+    it('ignores string', () => {
+      const code = "const string = 'string';";
+      expect(transform(code)).to.equal(code);
+    });
 
-    code = "const string = 'string';";
-    expect(transform(code)).to.equal(code);
-
-    code = "const string = 'a %URL';";
-    expect(transform(code)).to.equal(code);
+    it('ignores meta-HTML when not at start of string', () => {
+      const code = "const string = 'a %URL';";
+      expect(transform(code)).to.equal(code);
+    });
   });
 
   describe('%ContentReference', () => {
@@ -31,12 +34,23 @@ describe('index', function test() {
         "const url = '%ContentReference(EMPLOYEE, PT_PTFP_VIEW_GBL, psp)';";
       expect(transform(code)).to.match(/https?:\/\//);
     });
+    it('use custom cache directory', () => {
+      const code =
+        "const url = '%ContentReference(EMPLOYEE, PT_PTFP_VIEW_GBL, psp)';";
+      const opts = {
+        cacheDirectory: path.resolve(__dirname, '../tmp')
+      };
+      expect(transform(code, opts)).to.match(/https?:\/\//);
+    });
   });
 
   describe('%DBName', () => {
     it('populates %DBName', () => {
       const code = "const database = '%DBName';";
-      expect(transform(code)).to.include(PS_ENVIRONMENT.toUpperCase());
+      const opts = {
+        cacheTTL: 30
+      };
+      expect(transform(code, opts)).to.include(PS_ENVIRONMENT.toUpperCase());
     });
   });
 
