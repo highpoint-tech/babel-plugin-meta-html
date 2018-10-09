@@ -1,4 +1,7 @@
 # v0.2.1
+* Upgrade to latest `@highpoint/get-ps-token`.
+
+# v0.2.1
 * Add caching functionality
 
 # v0.2.0
