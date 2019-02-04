@@ -1,4 +1,8 @@
-# v0.2.1
+# v1.0.0
+* Plugin is stable, so release v1.
+* Change default cache time from 30 minutes to one day.
+
+# v0.2.2
 * Upgrade to latest `@highpoint/get-ps-token`.
 
 # v0.2.1
