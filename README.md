@@ -63,7 +63,7 @@ Advanced example:
 * `cacheDirectory`: Defaults to `node_modules/.cache/babel-plugin-meta-html`.
   Set to `false` to disable caching.
 * `cacheTTL`: Cache's time-to-live value, in seconds. Values older than this
-  will be refreshed. Defaults to 1800 seconds (30 minutes). 
+  will be refreshed. Defaults to 86,400 seconds (one day). 
 
 ## Environment Variables
 

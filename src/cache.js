@@ -5,7 +5,7 @@ const os = require('os');
 const path = require('path');
 const { readdir, mkdirp, stat, unlink, writeFile } = require('./fs');
 
-const ttl = 30 * 60; // 30 minutes
+const ttl = 60 * 60 * 24; // One day
 const now = new Date().getTime();
 
 let defaultCacheDirectory = null;
