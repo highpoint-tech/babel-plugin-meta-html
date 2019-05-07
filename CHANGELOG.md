@@ -1,3 +1,13 @@
+# v2.0.0
+* Remove trailing newline character from output. This is good house-keeping, but
+also fixes issues where a regular expression is in use and does not expect a
+newline character at the end of the string.
+
+BREAKING CHANGE
+* Fix `opts` declaration so it does not have to be nested inside an object for
+its options to be used. This was a bug, but since it changes the API, it's also
+a breaking change.
+
 # v1.0.0
 * Plugin is stable, so release v1.
 * Change default cache time from 30 minutes to one day.
