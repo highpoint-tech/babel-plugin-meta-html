@@ -8,7 +8,7 @@ const pluginPath = require.resolve('../src');
 
 const { PS_ENVIRONMENT } = process.env;
 
-const transform = (code, opts = {}) =>
+const transform = (code, opts = { cacheTTL: 5 }) =>
   babel.transformSync(code, {
     plugins: [[pluginPath, opts]]
   }).code;

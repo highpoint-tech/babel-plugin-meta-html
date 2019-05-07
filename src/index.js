@@ -5,7 +5,7 @@ const metaHTML = require('./meta-html');
 const request = require.resolve('./request');
 const toFind = new RegExp(`^(${metaHTML.join('|')})`);
 
-module.exports = (babel, { opts = {} }) => {
+module.exports = (babel, opts = {}) => {
   const useCache = opts.cacheDirectory !== false;
   if (useCache) {
     clearStaleCache(opts);
