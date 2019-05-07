@@ -24,9 +24,9 @@ module.exports = (babel, { opts = {} }) => {
         if (replacement === null) {
           // Because Babel does not support asynchronous visitors, the HTTP request
           // needs to be made by a blocking child.
-          replacement = execSync(
-            `node ${request} "${path.node.value}"`
-          ).toString();
+          replacement = execSync(`node ${request} "${path.node.value}"`)
+            .toString()
+            .replace(/\n$/, '');
 
           if (useCache) {
             storeInCache(path.node.value, replacement, opts);
