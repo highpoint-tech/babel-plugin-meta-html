@@ -1,6 +1,5 @@
 const babel = require('@babel/core');
 const { expect } = require('chai');
-const path = require('path');
 
 require('dotenv').config({ silent: true });
 
@@ -25,22 +24,6 @@ describe('index', function test() {
     it('ignores meta-HTML when not at start of string', () => {
       const code = "const string = 'a %URL';";
       expect(transform(code)).to.equal(code);
-    });
-  });
-
-  describe('%ContentReference', () => {
-    it('populates %ContentReference', () => {
-      const code =
-        "const url = '%ContentReference(EMPLOYEE, PT_PTFP_VIEW_GBL, psp)';";
-      expect(transform(code)).to.match(/https?:\/\//);
-    });
-    it('use custom cache directory', () => {
-      const code =
-        "const url = '%ContentReference(EMPLOYEE, PT_PTFP_VIEW_GBL, psp)';";
-      const opts = {
-        cacheDirectory: path.resolve(__dirname, '../tmp')
-      };
-      expect(transform(code, opts)).to.match(/https?:\/\//);
     });
   });
 
