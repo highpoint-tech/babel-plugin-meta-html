@@ -1,3 +1,7 @@
+# v3.0.0
+* Remove support for `%ContentReference`. The functionality works without issue,
+but we want to discourage its use.
+
 # v2.0.0
 * Remove trailing newline character from output. This is good house-keeping, but
 also fixes issues where a regular expression is in use and does not expect a
