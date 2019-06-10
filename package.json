@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hp-mobile/babel-plugin-meta-html.git"
+    "url": "git+https://github.com/highpoint-tech/babel-plugin-meta-html.git"
   },
   "author": "HighPoint <support@mhighpoint.com>",
   "license": "MIT",
