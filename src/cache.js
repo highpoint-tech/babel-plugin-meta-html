@@ -26,7 +26,7 @@ const getCacheDirectory = ({ cacheDirectory }) => {
 };
 
 const generateFilename = (key, opts) => {
-  const hash = crypto.createHash('md4');
+  const hash = crypto.createHash('sha256');
   const contents = JSON.stringify({
     key,
     opts
